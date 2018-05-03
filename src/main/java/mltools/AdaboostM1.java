@@ -1,63 +1,49 @@
 package mltools;
 
+import weka.classifiers.functions.Logistic;
+import weka.classifiers.meta.AdaBoostM1;
+import weka.classifiers.meta.AdditiveRegression;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.converters.ArffLoader;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import weka.classifiers.functions.Logistic;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.converters.ArffLoader;
-import weka.core.converters.ConverterUtils;
+public class AdaboostM1 {
 
-public class LogisticRegressionDemo {
-
-    static Logistic trainModel(String arffFile) throws Exception {
+    static AdaBoostM1 trainModel(String arffFile) throws Exception {
 
         File inputFile = new File(arffFile); //训练文件
         ArffLoader loader = new ArffLoader();
         loader.setFile(inputFile);
         Instances insTrain = loader.getDataSet(); // 读入训练文件
-
-//        ConverterUtils.DataSource source =new ConverterUtils.DataSource(arffFile);
-//        Instances insTrain = source.getDataSet();
         insTrain.setClassIndex(2); //设置分类属性所在列号（第一行为0号）
-        Logistic logic=new Logistic();
-
-        logic.buildClassifier(insTrain);//根据训练数据构造分类器
-
-        return logic;
+        AdaBoostM1 adaBoostM1 = new AdaBoostM1();
+        adaBoostM1.buildClassifier(insTrain);
+        return adaBoostM1;
     }
 
-    public List<Double> logistRegressionMain(){
+    public List<Double> adaboostMain(){
 
         List<Double> clusterResult = new ArrayList<Double>();
         try{
             final String arffTestFilePath = "D:\\javaProjects\\ml\\logisticRegressionTestData.arff";
             final String arffTrainFilePath = "D:\\javaProjects\\ml\\logisticRegressionTrainData.arff";
-
-            Logistic logic = trainModel(arffTrainFilePath);
-
-
+            AdaBoostM1 adaBoostM1 = trainModel(arffTrainFilePath);
             ArffLoader loader = new ArffLoader();
             loader.setFile(new File(arffTestFilePath)); //测试文件
             Instances insTest =loader.getDataSet(); // 读入文件
-//            ConverterUtils.DataSource source =new ConverterUtils.DataSource(arffTestFilePath);
-//            Instances insTest = source.getDataSet();
             insTest.setClassIndex(2); //设置分类属性所在列号（第一行为0号）
-
             double sum = insTest.numInstances(); //测试实例数
             double right=0.0f;
             for(int i=0;i<sum;i++){
-
                 Instance ins = insTest.instance(i);
                 //将划分结果存储在list中
-                clusterResult.add(logic.classifyInstance(ins));
-
-                if(logic.classifyInstance(ins)==ins.classValue()) {
-
+                clusterResult.add(adaBoostM1.classifyInstance(ins));
+                if(adaBoostM1.classifyInstance(ins)==ins.classValue()) {
                     right++;
-
                     System.out.println("No.\t" + i + "\t" + ins.classValue() + " RIGHT");
                 }
                 else {
@@ -75,4 +61,5 @@ public class LogisticRegressionDemo {
         }
 
     }
+
 }
