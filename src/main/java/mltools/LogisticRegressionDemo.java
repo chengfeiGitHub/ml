@@ -10,7 +10,7 @@ import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 import weka.core.converters.ConverterUtils;
 
-public class LogisticRegression {
+public class LogisticRegressionDemo {
 
     static Logistic trainModel(String arffFile) throws Exception {
 
@@ -33,8 +33,8 @@ public class LogisticRegression {
 
         List<Double> clusterResult = new ArrayList<Double>();
         try{
-            final String arffTestFilePath = "D:\\javaProjects\\ml\\test.arff";
-            final String arffTrainFilePath = "D:\\javaProjects\\ml\\train.arff";
+            final String arffTestFilePath = "D:\\javaProjects\\ml\\logisticRegressionTestData.arff";
+            final String arffTrainFilePath = "D:\\javaProjects\\ml\\logisticRegressionTrainData.arff";
 
             Logistic logic = trainModel(arffTrainFilePath);
 

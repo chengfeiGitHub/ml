@@ -9,20 +9,21 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kmeans {
-    public List<Integer> KmeansAlogorithm(){
+public class KmeansDemo {
+    public List<Integer> kmeansAlogorithm(){
 
        //这个结果集存储的是每个样本的所属类别，从0开始
         List<Integer> clusterResult  = new ArrayList<Integer>();
 
         try {
             // 读入样本数据
-//            File file = new File("D:\\javaProjects\\ml\\irisData.csv");
+//            File file = new File("D:\\javaProjects\\ml\\kmeansIrisData.arff");
 //            ArffLoader loader = new ArffLoader();
 //            loader.setFile(file);
 //            Instances ins = loader.getDataSet();
 
-            DataSource source =new DataSource("D:\\javaProjects\\ml\\irisData.csv");
+
+            DataSource source =new DataSource("D:\\javaProjects\\ml\\kmeansIrisData.csv");
             Instances ins = source.getDataSet();
 
 

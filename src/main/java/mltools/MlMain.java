@@ -3,11 +3,14 @@ package mltools;
 public class MlMain {
 
     public static void main(String[] args){
-        LogisticRegression logisticRegression = new LogisticRegression();
-        logisticRegression.logistRegressionMain();
+//        LogisticRegressionDemo logisticRegressionDemo = new LogisticRegressionDemo();
+//        logisticRegressionDemo.logistRegressionMain();
+//
+//        KmeansDemo kmeansDemo = new KmeansDemo();
+//        kmeansDemo.kmeansAlogorithm();
 
-//        Kmeans kmeans = new Kmeans();
-//        kmeans.KmeansAlogorithm();
+        LinearRegressionDemo linearRegressionDemo = new LinearRegressionDemo();
+        linearRegressionDemo.linearRegressionDemoMain();
 
     }
 }
