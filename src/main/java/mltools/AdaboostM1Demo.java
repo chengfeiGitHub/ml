@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdaboostM1 {
+public class AdaboostM1Demo {
 
     static AdaBoostM1 trainModel(String arffFile) throws Exception {
 

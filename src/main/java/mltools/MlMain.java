@@ -12,8 +12,8 @@ public class MlMain {
 //        LinearRegressionDemo linearRegressionDemo = new LinearRegressionDemo();
 //        linearRegressionDemo.linearRegressionDemoMain();
 
-        AdaboostM1 adaboostM1 = new AdaboostM1();
-        adaboostM1.adaboostMain();
+        AdaboostM1Demo adaboostM1Demo = new AdaboostM1Demo();
+        adaboostM1Demo.adaboostMain();
 
     }
 }

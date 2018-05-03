@@ -27,7 +27,6 @@ public class KmeansDemo {
             Instances ins = source.getDataSet();
 
 
-
             // 初始化聚类器 （加载算法）
             SimpleKMeans KM = new SimpleKMeans();
             KM.setNumClusters(3);       //设置聚类要得到的类别数量  这个后期需要传入
