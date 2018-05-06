@@ -37,6 +37,14 @@ public class KmeansDemo {
                 //                                                       获取每个样本对应的类别index
                 System.out.println( ins.instance(i) + " is in cluster: " + KM.clusterInstance(ins.instance(i)));
             }
+
+            //获取聚类结果的误差平方和,这个是聚类评价指标
+            double squaredError = KM.getSquaredError();
+            System.out.println("误差平方和为: " + squaredError);
+
+            //获取聚类结果中每一个类的个数
+            double[] eachClusterCount = KM.getClusterSizes();
+
             return clusterResult;
 
         } catch(Exception e) {
