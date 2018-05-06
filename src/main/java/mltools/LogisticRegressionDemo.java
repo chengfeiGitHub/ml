@@ -52,6 +52,7 @@ public class LogisticRegressionDemo {
 
                 Instance ins = insTest.instance(i);
                 //将划分结果存储在list中
+                double cr = logic.classifyInstance(ins);
                 clusterResult.add(logic.classifyInstance(ins));
 
                 if(logic.classifyInstance(ins)==ins.classValue()) {
